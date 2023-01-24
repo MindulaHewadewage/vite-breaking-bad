@@ -1,12 +1,15 @@
 <script>
+import PokemonList from './pokemon/PokemonList.vue'
 export default {
-
+    components: { PokemonList }
 }
 </script>
 
 <template>
     <main class="container">
-        <div class="pokedex-container"></div>
+        <div class="pokedex-container">
+            <pokemon-list></pokemon-list>
+        </div>
     </main>
 </template>
 
