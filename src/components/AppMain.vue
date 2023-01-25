@@ -31,6 +31,8 @@ main {
         height: 550px;
         background-color: #50565B;
         margin: 0 auto;
+
+        overflow-y: auto;
     }
 }
 </style>
