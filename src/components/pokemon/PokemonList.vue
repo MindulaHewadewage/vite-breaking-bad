@@ -1,21 +1,16 @@
 <script>
-import axios from 'axios';
+
+import { store } from '../../data/store';
 import PokemonCard from './PokemonCard.vue'
 export default {
     name: 'PokemonList',
     components: { PokemonCard },
     data() {
-        return {
-            pokemons: []
-        }
-    },
-
-    created() {
-        axios.get('https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=12&page=1')
-            .then(res => {
-                this.pokemons = res.data.docs;
-            })
+        return store
     }
+
+
+
 
 }
 </script>
