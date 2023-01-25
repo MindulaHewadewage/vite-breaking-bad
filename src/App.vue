@@ -14,7 +14,16 @@ export default {
         fetchPokemon() {
             axios.get('https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=12&page=1')
                 .then(res => {
-                    store.pokemons = res.data.docs;
+                    const apiPokemons = res.data.docs;
+                    store.pokemons = apiPokemons.map(pokemon => {
+                        const { imageUrl, number, name, type1 } = pokemon;
+                        return {
+                            imageUrl,
+                            number,
+                            name,
+                            type1
+                        }
+                    })
                 })
         }
     },
