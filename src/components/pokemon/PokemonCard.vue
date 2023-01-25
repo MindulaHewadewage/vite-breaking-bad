@@ -2,6 +2,7 @@
 export default {
     name: 'PokemonCard',
     props: {
+        image: String,
         number: Number,
         name: String,
         type1: String
@@ -12,14 +13,14 @@ export default {
 
 <template>
 
-    <div v-for="pokemon in pokemons" :key="pokemon.number" class="pokemon-card ">
+    <div class="pokemon-card ">
         <div class="pokemon-image">
-            <img :src="pokemon.imageUrl" :alt="pokemon.name">
+            <img :src="image" :alt="name">
         </div>
         <div class="pokemon-description">
-            <p></p>
-            <h1>{{ pokemon.name }}</h1>
-            <p></p>
+            <p>{{ number }}</p>
+            <h3>{{ name }}</h3>
+            <p>{{ type1 }}</p>
         </div>
     </div>
 

@@ -23,9 +23,10 @@ export default {
 
 <template>
     <div class="row g-4 row-cols-5">
-        <div v-for="pokemon in pokemons" :key="pokemon.name" class="pokemon-list">
-            {{ pokemon.name }}
-        </div>
+        <pokemon-card v-for="pokemon in pokemons" :key="pokemon.name" class="pokemon-list" :image="pokemon.imageUrl"
+            :number="pokemon.number" :name="pokemon.name" :type1="pokemon.type1">
+
+        </pokemon-card>
 
     </div>
 
