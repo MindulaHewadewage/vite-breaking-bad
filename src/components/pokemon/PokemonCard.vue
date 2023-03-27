@@ -1,21 +1,26 @@
 <script>
+import { colorMap } from '../../data'
 export default {
     name: 'PokemonCard',
     props: {
-        image: String,
+        imageUrl: String,
         number: Number,
         name: String,
         type1: String
+    },
+    computed: {
+        bgColor() {
+            return colorMap[this.type1]
+        }
     }
 }
 </script>
 
 
 <template>
-
-    <div class="pokemon-card p-2 col">
+    <div class="pokemon-card p-2 col" :style="`background-color:${bgColor}`">
         <div class="pokemon-image">
-            <img :src="image" :alt="name">
+            <img :src="imageUrl" :alt="name">
         </div>
         <div class="pokemon-description p-2">
             <p>#{{ number }}</p>
@@ -23,12 +28,10 @@ export default {
             <p class="fst-italic">{{ type1 }}</p>
         </div>
     </div>
-
 </template>
 
 <style scoped lang="scss">
 .pokemon-card {
-    background-color: lightgrey;
     display: flex;
     flex-direction: column;
     text-align: center;

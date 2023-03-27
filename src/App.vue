@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+import { apiUri } from './data/index';
 import { store } from './data/store';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
@@ -7,12 +8,12 @@ export default {
     components: { AppHeader, AppMain },
     data() {
         return {
-            store
+            store, apiUri
         }
     },
     methods: {
         fetchPokemon() {
-            axios.get('https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=12&page=1')
+            axios.get(apiUri)
                 .then(res => {
                     const apiPokemons = res.data.docs;
                     store.pokemons = apiPokemons.map(pokemon => {
