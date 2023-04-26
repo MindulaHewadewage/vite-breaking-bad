@@ -1,15 +1,13 @@
 <script>
-import BaseSelect from './pokemon/BaseSelect.vue'
 import PokemonList from './pokemon/PokemonList.vue'
 export default {
-    components: { BaseSelect, PokemonList }
+    components: { PokemonList }
 }
 </script>
 
 <template>
     <main class="container">
         <div class="pokedex-container">
-            <base-select></base-select>
             <pokemon-list></pokemon-list>
         </div>
     </main>

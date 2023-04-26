@@ -18,20 +18,14 @@ export default {
 
 <template>
     <div class="container">
-        <div class="pokemon-list row row-cols-5">
-            <pokemon-card v-for="pokemon in pokemons" :key="pokemon.name" v-bind="pokemon">
+        <div class="pokemon-list row g-3">
+            <pokemon-card v-for="pokemon in pokemons" :key="pokemon.name" v-bind="pokemon"
+                class="col-12 col-sm-6 col-md-4 col-lg-3">
 
             </pokemon-card>
 
         </div>
     </div>
-
-
 </template>
 
-<style scoped lang="scss">
-.pokemon-list {
-    align-items: center;
-    justify-content: center;
-}
-</style>
+<style scoped lang="scss"></style>

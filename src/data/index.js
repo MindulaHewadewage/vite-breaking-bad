@@ -1,5 +1,5 @@
 const apiUri =
-  "https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=12&page=1";
+  "https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons";
 
 const colorMap = {
   Bug: "#3B9950",

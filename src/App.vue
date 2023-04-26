@@ -12,8 +12,8 @@ export default {
         }
     },
     methods: {
-        fetchPokemon() {
-            axios.get(apiUri)
+        fetchPokemon(endpoint = apiUri) {
+            axios.get(endpoint)
                 .then(res => {
                     const apiPokemons = res.data.docs;
                     store.pokemons = apiPokemons.map(pokemon => {
@@ -26,16 +26,27 @@ export default {
                         }
                     })
                 })
+        },
+        fetchTypes() {
+            axios.get(apiUri + '/types1')
+                .then(res => { store.types = res.data; })
+                .catch(err => { console.error(err) });
+
+        },
+        filterPokemon(type) {
+            const url = type ? `${apiUri}?eq[type1]=${type}` : apiUri;
+            this.fetchPokemon(url)
         }
     },
     created() {
-        this.fetchPokemon()
+        this.fetchTypes();
+        this.fetchPokemon();
     }
 }
 </script>
 
 <template>
-    <app-header></app-header>
+    <app-header @filter-change="filterPokemon"></app-header>
     <app-main></app-main>
 </template>
 
